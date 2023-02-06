@@ -260,6 +260,10 @@ h2 {
     font-size: 18px;
   }
 
+  .details {
+    display: none;
+  }
+
   .game-screen {
     margin-top: 0;
     box-shadow: none;
