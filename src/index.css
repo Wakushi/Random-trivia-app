@@ -103,7 +103,7 @@ h3 {
 /* Game screen */
 
 .game-screen {
-  margin-top: 4em;
+  margin-top: 1em;
   max-width: 700px;
   background: whitesmoke;
   border-radius: 20px;
@@ -128,6 +128,7 @@ h3 {
   text-align: center;
   font-weight: 700;
   cursor: pointer;
+  font-size: 90%;
 }
 
 .answers {
