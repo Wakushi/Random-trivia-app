@@ -5,18 +5,22 @@
   ;
 }
 
-body {
+html, body, main {
   margin: 0;
   padding: 0;
-  background: #f7d872;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top,#ffffff, #ffecd1);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #ffffff, #ffecd1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #3a3939;
-  font-family: Inter, sans-serif;
-
+  height: 100%;
 }
 
-main, 
+body {
+  background-color: #f7d872;  /* fallback for old browsers */
+  background-color: -webkit-linear-gradient(to top,#ffffff, #ffecd1);  /* Chrome 10-25, Safari 5.1-6 */
+  background: no-repeat center fixed linear-gradient(to top, #ffffff, #ffecd1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #3a3939;
+  font-family: Inter, sans-serif;
+  box-sizing: border-box;
+}
+
+main,
 .start-screen, 
 .answers,
 .game-screen,
@@ -27,24 +31,21 @@ main,
   align-items: center;
 }
 
-main {
-  height: 100vh;
-  box-sizing: border-box;
-}
-
 /* Typo */
 
 h1, h2, h3, h4 {
   margin: 0;
+  text-align: center;
 }
 
 h1 {
   font-family: "Bogart", sans-serif;
   font-size: 70px;
   background: linear-gradient(271deg,#56d6fd 30%,#9247e7 50%,#f093b0 70%,#fda900 94%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-shadow: 1px 1px 10px rgb(255, 255, 255);
+  text-align: center;
 }
 
 h3 {
@@ -54,18 +55,18 @@ h3 {
 /* Start screen */
 
 .game-info {
-  font-size: 25px;
   margin: 0 0 2em;
   background: linear-gradient(271deg,#a0e9ff 30%,#a162e8 50%,#f093b0 70%,#edca85 94%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-align: center;
 }
 
+
 .start-screen {
-  width: 700px;
-  height: 100%;
+  margin-top: 20em;
+
   flex-direction: column;
-  margin-bottom: 10em;
 }
 
 .start-btn,
@@ -102,12 +103,14 @@ h3 {
 /* Game screen */
 
 .game-screen {
+  margin-top: 4em;
+  max-width: 700px;
   background: whitesmoke;
   border-radius: 20px;
   padding: 10px;
   flex-direction: column;
   padding: 30px;
-  width: 40%;
+  width: 90%;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.253);
 }
 
@@ -154,8 +157,13 @@ h3 {
   align-items: baseline;
 }
 
-.score-display h4 {
-  font-size: 30px
+.user-score,
+.game-comment {
+  font-size: 24px
+}
+
+.game-comment {
+  width: 20%;
 }
 
 /* Dynamic classes */
@@ -177,4 +185,100 @@ h3 {
 
 .grayed {
   opacity: 0.6;
+}
+
+.unselectable {
+  pointer-events: none;
+}
+
+/*  Responsive  */
+
+@media screen and (max-width : 600px) {
+
+  body {
+    background: whitesmoke;
+  }
+
+  h1 {
+    font-size: 50px;
+    width: 80%;
+    line-height: 1em;
+    margin-bottom: 1em;
+  }
+
+  .user-score,
+  .game-comment {
+    font-size: 18px;
+  }
+
+  .game-screen {
+    margin-top: 0;
+    box-shadow: none;
+  }
+
+  .question {
+    font-size: 15px;
+  }
+  .answer {
+    font-size: 10px;
+  }
+
+  .answers {
+    gap: 5px;
+  }
+
+  .results-btn,
+  .play-again-btn {
+  background-color: #888787;
+  margin-top: 4em;
+  font-size: 14px;
+}
+
+  
+}
+
+@media screen and (max-width : 500px) {
+
+.game-comment {
+  width: 80%;
+}
+
+.score-display {
+  margin-top: 2em;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px
+}
+
+.play-again-btn {
+  margin-top: 0;
+}
+
+.answers {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.game-info {
+  width: 80%;
+}
+
+}
+
+@media screen and (max-width : 300px) {
+
+  .question {
+    font-size: 13px;
+  }
+  .answer {
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .results-btn,
+  .play-again-btn {
+    background-color: #888787;
+    font-size: 12px;
+}
+
 }

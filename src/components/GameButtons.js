@@ -31,8 +31,8 @@ export default function GameButtons(props) {
         <div className="game-bottom">
             {!props.hasChecked && <button className="results-btn" onClick={props.displayResults}>Check answers</button>}
             {props.hasChecked && <span className="score-display">
-                <h4>Your score is {props.handleScore()}/5</h4>
-                <h4>{getComment()}</h4>
+                <h4 className="user-score">Your score is {props.handleScore()}/5</h4>
+                <h4 className="game-comment">{getComment()}</h4>
                 <button className="play-again-btn" onClick={props.handlePlayAgain}>Play Again</button>
             </span>}
         </div>

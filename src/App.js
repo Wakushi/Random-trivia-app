@@ -42,6 +42,11 @@ export default function App() {
   
   // handlePlayAgain() updates the 'game' state variable to cause a new fetch and render (check previous useEffect), which displays new questions.
   function handlePlayAgain() {
+    const allAnswers = document.getElementsByClassName('answer')
+    for(let answer of allAnswers){
+      answer.classList.remove('unselectable')
+    }
+    window.scrollTo(0,0) 
     setGame(prevGame => prevGame + 1)
     setTimeout(()=>{
       setHasChecked(prevHasChecked => !prevHasChecked) // flips hasChecked to display the 'Check answers' button instead of the 'Play again' button.
@@ -58,6 +63,7 @@ export default function App() {
         answer.classList.add('bad') // ... we apply the 'bad' class.
       } else if (answer.id.slice(0,5) === "false") { // If it wasn't selected by the user we simply reduce the opacity with the 'grayed' class.
         answer.classList.add('grayed')
+        answer.classList.add('unselectable')
       } 
     }
     setHasChecked(prevHasChecked => !prevHasChecked) // flips hasChecked to display the 'Play again' button instead of the 'Check answers' button.
