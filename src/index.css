@@ -254,6 +254,10 @@ h2 {
     font-size: 25px;
   }
 
+  .start-btn {
+    margin-bottom: 2em;
+  }
+
   .user-score,
   .game-comment {
     font-size: 18px;
