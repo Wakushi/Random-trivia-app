@@ -18,6 +18,7 @@ body {
   color: #3a3939;
   font-family: Inter, sans-serif;
   box-sizing: border-box;
+  position: relative;
 }
 
 main,
@@ -252,10 +253,6 @@ h2 {
 
   h2 {
     font-size: 25px;
-  }
-
-  .start-screen .start-btn {
-    margin-bottom: 10em;
   }
 
   .user-score,
