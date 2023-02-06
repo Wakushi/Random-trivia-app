@@ -19,25 +19,39 @@ export default function App() {
 
   // questionnary holds the dom elements generated from the render() function.
   const [questionnary, setQuestionnary] = React.useState([])
+ 
+  // themeId holds the id of the selected trivia theme.
+  const [themeId, setThemeId] = React.useState(9)
+
+  // Holds the difficulty parameter.
+  const [difficulty, setDifficulty] = React.useState('easy')
 
 
   // ---- API ----
 
+  function handleTheme(e) {
+    setThemeId(e.target.value)
+  }
+
+  function handleDifficulty(e) {
+    setDifficulty(e.target.value)
+  }
+
   // This useEffect controls when the fetch + render occurs, with the 'game' dependency.
   React.useEffect(()=>{
-    fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple")
+    fetch(`https://opentdb.com/api.php?amount=5&category=${themeId}&difficulty=${difficulty}&type=multiple`)
     .then(r => r.json())
     .then(data => {
       setQuestionnary(render(data.results))
     })
-  },[game])
+  },[themeId, game, difficulty])
 
 
   // ---- GAME FUNCTIONS  ----
 
   // handleStart() updates the hadStarted state to display the game screen.
   function handleStart() {
-    setHadStarted(true)
+    setHadStarted(prevHasStarted => !prevHasStarted)
   }
   
   // handlePlayAgain() updates the 'game' state variable to cause a new fetch and render (check previous useEffect), which displays new questions.
@@ -72,10 +86,10 @@ export default function App() {
   return (
     <main>
       
-      {!hasStarted && <StartScreen handleStart={handleStart} />}
+      {!hasStarted && <StartScreen handleTheme={handleTheme} handleStart={handleStart} handleDifficulty={handleDifficulty}/>}
 
       {hasStarted && <div className="game-screen">
-
+      <i onClick={handleStart} class="fa-solid fa-house"></i>
         {questionnary}
 
         <GameButtons

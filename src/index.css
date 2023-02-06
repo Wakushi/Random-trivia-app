@@ -46,6 +46,7 @@ h1 {
   -webkit-text-fill-color: transparent;
   text-shadow: 1px 1px 10px rgb(255, 255, 255);
   text-align: center;
+  animation: float 2s ease-in-out infinite; 
 }
 
 h3 {
@@ -56,7 +57,7 @@ h3 {
 
 .game-info {
   margin: 0 0 2em;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   background: linear-gradient(271deg,#a0e9ff 30%,#a162e8 50%,#f093b0 70%,#edca85 94%);
   -webkit-background-clip: text;
@@ -99,6 +100,23 @@ h3 {
   font-size: 15px;
   position: absolute;
   bottom: 0;
+}
+
+.select {
+  border: transparent;
+  padding: 10px;
+  font-family: Inter, sans-serif;
+  border-radius: 10px;
+  margin-bottom: 1.5em;
+  font-size: 16px;
+  box-shadow: 1px 1px 10px rgb(167, 165, 165);
+  cursor: pointer;
+}
+
+h2 {
+  color: rgb(64, 146, 194);
+  font-size: 30px;
+  margin-bottom: 0.2em;
 }
 
 /* Game screen */
@@ -168,6 +186,16 @@ h3 {
   width: 20%;
 }
 
+.fa-house {
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.fa-house:hover {
+  filter: invert(1);
+  scale: 1.1;
+}
+
 /* Dynamic classes */
 
 .selected {
@@ -193,6 +221,20 @@ h3 {
   pointer-events: none;
 }
 
+/* Animation */
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(10px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
 /*  Responsive  */
 
 @media screen and (max-width : 600px) {
@@ -206,6 +248,10 @@ h3 {
     width: 80%;
     line-height: 1em;
     margin-bottom: 1em;
+  }
+
+  h2 {
+    font-size: 25px;
   }
 
   .user-score,
