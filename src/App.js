@@ -53,6 +53,12 @@ export default function App() {
   function handleStart() {
     setHadStarted(prevHasStarted => !prevHasStarted)
   }
+
+  function handleHomeButton(){
+    setHasChecked(false)
+    setHadStarted(prevHasStarted => !prevHasStarted)
+    setGame(prevGame => prevGame + 1)
+  }
   
   // handlePlayAgain() updates the 'game' state variable to cause a new fetch and render (check previous useEffect), which displays new questions.
   function handlePlayAgain() {
@@ -89,7 +95,7 @@ export default function App() {
       {!hasStarted && <StartScreen handleTheme={handleTheme} handleStart={handleStart} handleDifficulty={handleDifficulty}/>}
 
       {hasStarted && <div className="game-screen">
-      <i onClick={handleStart} class="fa-solid fa-house"></i>
+      <i onClick={handleHomeButton} class="fa-solid fa-house"></i>
         {questionnary}
 
         <GameButtons
