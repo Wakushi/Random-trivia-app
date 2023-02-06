@@ -56,6 +56,8 @@ h3 {
 
 .game-info {
   margin: 0 0 2em;
+  font-size: 18px;
+  font-weight: 700;
   background: linear-gradient(271deg,#a0e9ff 30%,#a162e8 50%,#f093b0 70%,#edca85 94%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -64,8 +66,7 @@ h3 {
 
 
 .start-screen {
-  margin-top: 20em;
-
+  margin-top: 10em;
   flex-direction: column;
 }
 
