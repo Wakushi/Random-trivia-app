@@ -190,6 +190,8 @@ h2 {
 .fa-house {
   align-self: flex-start;
   cursor: pointer;
+  position: fixed;
+  top: 40px;
 }
 
 .fa-house:hover {
@@ -258,6 +260,11 @@ h2 {
   .user-score,
   .game-comment {
     font-size: 18px;
+  }
+
+  .fa-house {
+    top: 20px;
+    left: 15px;
   }
 
   .details {
