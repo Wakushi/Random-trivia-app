@@ -254,8 +254,8 @@ h2 {
     font-size: 25px;
   }
 
-  .start-btn {
-    margin-bottom: 8em;
+  .start-screen .start-btn {
+    margin-bottom: 10em;
   }
 
   .user-score,
