@@ -95,7 +95,7 @@ export default function App() {
       {!hasStarted && <StartScreen handleTheme={handleTheme} handleStart={handleStart} handleDifficulty={handleDifficulty}/>}
 
       {hasStarted && <div className="game-screen">
-      <i onClick={handleHomeButton} class="fa-solid fa-house"></i>
+      <i onClick={handleHomeButton} className="fa-solid fa-house"></i>
         {questionnary}
 
         <GameButtons
